@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Перенос лендинга на платформу Angular
+* Создание отдельных компонентов для страниц: Главная, Список продуктов, Продукт, Оформление заказа
+* Использование в проекте библиотеки компонентов Material Angular для аккордиона и слайдера на главной странице
+* Настройка роутинга по страницам
+* Настройка реактивной формы для оформления заказа
