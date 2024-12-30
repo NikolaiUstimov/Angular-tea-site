@@ -11,7 +11,7 @@
           <span class="text-hidden" (click)="isTextHidden(i)">{{textHidden[i] ? 'Скрыть текст' : 'Показать текст'}}</span>
         </p>
         <p class="card-text">Цена: <strong>{{product.price}} руб.</strong></p>
-        <a [routerLink]="['/product', product.id]" class="btn btn-primary px-5">Подробнее</a>
+        <a [routerLink]="['/products', product.id]" class="btn btn-primary px-5">Подробнее</a>
       </figcaption>
     </figure>
   </article>

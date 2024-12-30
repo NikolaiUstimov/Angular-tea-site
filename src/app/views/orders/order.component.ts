@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
-import {ProductsService} from "../../services/products.service";
+import {ProductsService} from "../../shared/services/products.service";
 
 @Component({
   selector: 'order-component',
@@ -23,7 +23,7 @@ export class OrderComponent implements OnInit, OnDestroy {
   private subscriptionsParams: Subscription | null = null;
   private subscriptionsOrder: Subscription | null = null;
 
-  orderForms = this.formBuilder.group(
+  orderForms: FormGroup = this.formBuilder.group(
     {
       name: this.formBuilder.control<string>('', {
         validators: [Validators.required, Validators.pattern('^[А-ЯЁ][а-яё]+$')],

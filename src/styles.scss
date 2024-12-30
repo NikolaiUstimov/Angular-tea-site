@@ -4,6 +4,9 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -109,6 +112,17 @@ $angular-tea-site-theme: mat.define-light-theme((
   font-size: 14px;
 }
 
+header {
+  flex: 0 0 auto;
+}
+
+.container {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex: 0 0 auto;
+}
 
 /*Медиазапросы для высоты слайдера*/
 @media screen and (max-width: 992px) {
@@ -172,3 +186,4 @@ input.ng-invalid.ng-touched {
   border-color: red;
   box-shadow: 0px 0px 4px 2px rgba(255, 0, 0, 0.2);
 }
+
