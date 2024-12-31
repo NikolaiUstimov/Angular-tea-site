@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductsInterface} from "../../../interfaces/products.interface";
 import {ProductsService} from "../../../shared/services/products.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'product-component',
@@ -11,6 +12,7 @@ import {ProductsService} from "../../../shared/services/products.service";
 export class ProductComponent implements OnInit {
 
   product: ProductsInterface;
+  public loader: boolean = false;
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
               private productsService: ProductsService) {
@@ -27,7 +29,11 @@ export class ProductComponent implements OnInit {
     //Получение продукта с сервера
     this.activatedRoute.params.subscribe(params => {
       if (params['id']) {
+        this.loader = true;
         this.productsService.getProduct(+params['id'])
+          .pipe(
+            tap(() => { this.loader = false; })
+          )
         .subscribe(
           {
             next: data => {

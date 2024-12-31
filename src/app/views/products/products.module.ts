@@ -7,6 +7,7 @@ import {RouterModule} from "@angular/router";
 import {ProductsComponent} from "./products/products.component";
 import {ProductComponent} from "./product/product.component";
 import {SharedModule} from "../../shared/shared.module";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {SharedModule} from "../../shared/shared.module";
     CommonModule,
     RouterModule,
     SharedModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     ProductsRoutingModule

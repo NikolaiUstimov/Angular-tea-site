@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {ProductsInterface} from "../../../interfaces/products.interface";
 import {ProductsService} from "../../../shared/services/products.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'products-component',
@@ -15,10 +16,15 @@ export class ProductsComponent implements OnInit {
 
   public products: ProductsInterface[] = []
   public textHidden: {[key: number]: boolean} = {};
+  public loader: boolean = false;
 
   ngOnInit(): void {
     //Получаем продукты с сервера
+    this.loader = true;
     this.productsService.getProducts()
+      .pipe(
+        tap(() => { this.loader = false; })
+      )
       .subscribe(
         {
           next: (data) => {
